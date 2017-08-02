@@ -3,7 +3,7 @@ Godown is an inventory management project
 
 Todo:
 - Build a database mockup
-![alt text](http://imgur.com/v4aRjAZ "Logo Title Text 1")
+![alt text](http://i.imgur.com/v4aRjAZ.jpg "Logo Title Text 1")
 
 - Build a small prototype
 - Evaluate langauges to use
