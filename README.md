@@ -2,7 +2,7 @@
 Godown is an inventory management project
 
 Todo:
-- Build a database mockup
+- ~~Build a database mockup~~
 ![alt text](http://i.imgur.com/UecUHE7.jpg "ER diagram")
 
 - Build a small prototype
