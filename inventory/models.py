@@ -1,0 +1,40 @@
+from django.db import models
+
+# Create your models here.
+
+class Product( models.Model ):
+    name = models.CharField(max_length=70)
+    description = models.TextField()
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+class Product_variant( models.Model ):
+    name = models.CharField( max_length=200 )
+    sku = models.CharField( max_length=60 )
+    price = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    product = models.ForeignKey( Product, on_delete=models.CASCADE)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+class Variant( models.Model ):
+    name = models.CharField(max_length=70)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+class Variant_value( models.Model ):
+    value = models.CharField( max_length=200 )
+    variant = models.ForeignKey( Variant, on_delete=models.CASCADE)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.value
+
+class Product_detail( models.Model ):
+   
+    variant_value = models.ForeignKey( Variant_value, on_delete=models.CASCADE)
+    product_variant = models.ForeignKey( Product_variant, on_delete=models.CASCADE)
+
+   
