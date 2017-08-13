@@ -16,11 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 from . import views
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'),
+    # url(r'^contact-us/$', views.contact, name='contact'),
+    url(r'^',  include('inventory.urls')),
+	url(r'^contact-us/',  include('contact.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^_nested_admin/', include('nested_admin.urls')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

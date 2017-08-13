@@ -1,0 +1,58 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Godown</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+		    <h1><a href="/">Godown</a></h1>
+		</div>
+		<div class="content container">
+		    <div class="row">
+		        <div class="col-md-8">
+					<h1>{{ product.name }}</h1>
+					<p>{{ product.description }}</p>
+					<img src="{{ product.image.url }}">
+					<!-- <ul>
+					{% for v in product.product_variant_set.all %}
+					    <li>{{ v.name }}</li>
+					     <ul>
+    {% for respuesta in v.product_detail_set.all %}
+        <li>{{ respuesta.variant_value_id }}</li>
+        <li>{{ respuesta.variant_value_id_set.value }}</li>
+         <ul>
+    {% for variant in respuesta.variant_value_set.all %}
+        <li>{{ variant.value }}</li>
+    {% endfor %}
+    </ul>
+    {% endfor %}
+    </ul>
+					{% endfor %}
+					</ul> -->
+
+					
+    {% for variants in variant_list %}
+    <div class="form-group">
+        
+         <label for="option">{{ variants.name }}</label>
+        	
+    <select class="form-control">
+    {% for options in variants.variant_value_set.all %}
+        
+  <option value="{{ options.id }}">{{ options.value }}</option>
+       
+    {% endfor %}
+    </select>
+
+    </div>
+    {% endfor %}
+   
+				</div>
+		    </div>
+		</div>
+	 </body>
+</html>

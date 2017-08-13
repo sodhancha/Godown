@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Godwon Admin{% endblock %}
+{% block extrastyle %}
+<style>
+#header {
+	background-color:#9e5d5d
+}
+</style>
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Godown</a></h1>
+<h1>{% block content_title %} My Dashboard{% endblock %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

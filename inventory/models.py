@@ -2,12 +2,20 @@ from django.db import models
 
 # Create your models here.
 
+class ProductManager(models.Manager):
+    def get_queryset(self):
+        return super(ProductManager,self).get_queryset().filter(name="Goldstar shoe")
+
 class Product( models.Model ):
     name = models.CharField(max_length=70)
     description = models.TextField()
+    image = models.ImageField(upload_to="images", blank=True)
+
+    # goldstar = ProductManager()
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+
 
 class Product_variant( models.Model ):
     name = models.CharField( max_length=200 )

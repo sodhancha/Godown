@@ -5,7 +5,18 @@ import nested_admin
 
 from .models import Product, Product_variant, Variant, Variant_value, Product_detail
 
-admin.site.site_header = 'Godown'
+# admin.site.site_header = 'Godown'
+
+class VariantAdmin(admin.ModelAdmin):
+    
+    list_display = ['name']
+    search_fields = ['name']
+
+    def get_queryset( self, request ):
+        queryset = super(VariantAdmin,self).get_queryset(request)
+        queryset = queryset.order_by('name')
+        return queryset
+
 
 class Variant_valueAdmin(nested_admin.NestedModelAdmin):
 	
@@ -14,7 +25,7 @@ class Variant_valueAdmin(nested_admin.NestedModelAdmin):
     search_fields = ['value','variant__name']
 
 
-admin.site.register(Variant)
+admin.site.register(Variant, VariantAdmin)
 admin.site.register(Variant_value, Variant_valueAdmin)
 
 
@@ -34,8 +45,13 @@ class Product_variantInline(nested_admin.NestedStackedInline):
 
 class ProductAdmin(nested_admin.NestedModelAdmin):
     inlines = [Product_variantInline]
-    list_display = ['name','description']
+    list_display = ['product_name','description']
     search_fields = ['name']
+
+    def product_name(self, obj):
+        return obj.name
+
+    product_name.short_description = 'Product Name'
 
 admin.site.register(Product, ProductAdmin)
 
