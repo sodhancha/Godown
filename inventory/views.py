@@ -21,6 +21,7 @@ def detail(request, product_id):
 
 	product = get_object_or_404(Product, pk=product_id)
 
+
 	variant_list = Variant.objects.all()
 	
 	product_variant = Product_variant.objects.filter(product_id=product_id)
@@ -32,9 +33,11 @@ def detail(request, product_id):
 		
 	 	product_detail = Product_detail.objects.filter(product_variant_id=pv.id)
 
+	 	# return HttpResponse(product_detail)
+
 	 	for p in product_detail:
 
- 		
+ 			# return HttpResponse(p)
  			variant_id = p.variant_value_id
  			variant_ids.append(variant_id)
 
@@ -43,8 +46,8 @@ def detail(request, product_id):
 		variant_value = Variant_value.objects.filter(variant_id=variant.id) 
 		# return HttpResponse(variant_value)
 
-	# return HttpResponse(variant_list)
-	
+	# return HttpResponse(variant_ids)
+
 	template = loader.get_template('inventory/detail.html')
 	context = {
 		'product': product,

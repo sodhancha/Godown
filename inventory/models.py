@@ -16,6 +16,9 @@ class Product( models.Model ):
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
+    # def getVariants(self):
+    #     return Variant_value.objects.filter(product=self)
+
 
 class Product_variant( models.Model ):
     name = models.CharField( max_length=200 )
@@ -26,6 +29,9 @@ class Product_variant( models.Model ):
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+
+    # def getVariants(self):
+    #     return Variants.objects.filter(product=self)
 
 class Variant( models.Model ):
     name = models.CharField(max_length=70)
