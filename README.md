@@ -6,7 +6,8 @@ Todo:
 ![alt text](http://i.imgur.com/UecUHE7.jpg "ER diagram")
 
 - ~~Build a small prototype~~
-- ~~Evaluate langauges to use ~~<br />Django
+- ~~Evaluate langauges to use ~~
+<br />Django
 - ~~Evaluate feature list after prototype~~ <br />
 Purchase Order<br />
 Invoice<br />
