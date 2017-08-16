@@ -7,7 +7,11 @@ Todo:
 
 - Build a small prototype
 - Evaluate langauges to use
+Django
 - Evaluate feature list after prototype
+Purchase Order
+Invoice
+Stock Analysis
 
 Authors:
 @kendra and @sodhan
