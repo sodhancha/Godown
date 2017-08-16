@@ -7,7 +7,7 @@ Todo:
 
 - ~~Build a small prototype~~
 
-- ~~Evaluate langauges to use~~
+- ~~Evaluate langauges to use~~ <br /> Django
 
 - ~~Evaluate feature list after prototype~~ <br />
 Purchase Order<br />
